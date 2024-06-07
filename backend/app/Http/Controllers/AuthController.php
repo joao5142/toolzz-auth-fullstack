@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\auth\AuthException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\auth\LoginRequest;
 use App\Http\Requests\auth\RegisterUserRequest;
@@ -25,12 +26,12 @@ class AuthController extends Controller
                 $token = $user->createToken('api-token')->plainTextToken;
 
                 return response()->json(['access_token' => $token], 200);
+            } else {
+                throw new AuthException('Error ao se logar , tente novamente mais tarde');
             }
-
-            return response()->json(['message' => 'Credenciais inválidas'], 500);
         } catch (Exception $err) {
 
-            return response()->json(['message' => 'Error do servidor'], 500);
+            return response()->json(['message' => 'Error do servidor', $err->getMessage()], 500);
         }
     }
 
