@@ -1,13 +1,15 @@
 "use client";
 
-import { HTMLAttributes, ReactNode } from "react";
+import { HTMLAttributes, InputHTMLAttributes, ReactNode } from "react";
 import { InputContainer, InputElement, IconContainer } from "./styles";
 
 export interface IInput {
   wFull?: boolean;
   prependIcon: ReactNode;
 }
-export interface IInputProps extends HTMLAttributes<HTMLInputElement>, IInput {}
+export interface IInputProps
+  extends InputHTMLAttributes<HTMLInputElement>,
+    IInput {}
 
 export function AppInput({ wFull = false, prependIcon, ...rest }: IInputProps) {
   return (
