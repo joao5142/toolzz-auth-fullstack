@@ -22,8 +22,8 @@
 </div>
 
 <h2>🖼️ Demonstração da aplicação</h2>
-<img margin-bottom="20px" src="/src/assets/readme1.png">
-<img margin-bottom="20px" src="/src/assets/readme2.png">
+<img margin-bottom="20px" src="/public/readme1.png">
+<img margin-bottom="20px" src="/public/readme2.png">
 
 <h2>🧑🏻‍ Autor</h2>
 <p>Feito por João paulo</p>
