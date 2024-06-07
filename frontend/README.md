@@ -25,6 +25,8 @@
 <img margin-bottom="20px" src="/public/readme1.png">
 <img margin-bottom="20px" src="/public/readme2.png">
 
+<h4  style="display: inline_block">Visualização do site :</h4><a style="display: inline_block" target="blank" href="https://toolzz-auth-fullstack.vercel.app/auth/login">Preview na Vercel</a>
+
 <h2>🧑🏻‍ Autor</h2>
 <p>Feito por João paulo</p>
 <a href="https://www.linkedin.com/in/jo%C3%A3o-paulo-8b38b8254/">
