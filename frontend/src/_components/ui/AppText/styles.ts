@@ -25,6 +25,17 @@ export const TextContainer = styled(Box)<IText>`
       line-height: ${lineHeight};
     `}
 
+    ${(props) =>
+    props.align &&
+    css`
+      text-align: ${props.align};
+    `}
 
  	 ${(props) => props.size && getFontSize(props.size)}
+
+   ${(props) =>
+    props.block &&
+    css`
+      display: block;
+    `}
 `;

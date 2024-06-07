@@ -1,24 +1,19 @@
 "use client";
-import { InputContainer } from "./styles";
 
-import { HTMLAttributes, forwardRef } from "react";
+import { HTMLAttributes, ReactNode } from "react";
+import { InputContainer, InputElement, IconContainer } from "./styles";
 
 export interface IInput {
   wFull?: boolean;
-  name: string;
+  prependIcon: ReactNode;
 }
-interface InputProps extends HTMLAttributes<HTMLInputElement>, IInput {}
+export interface IInputProps extends HTMLAttributes<HTMLInputElement>, IInput {}
 
-// eslint-disable-next-line react/display-name
-export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ onChange, onBlur, name, wFull = false, ...rest }, ref) => (
-    <InputContainer
-      as="input"
-      {...rest}
-      name={name}
-      onChange={onChange}
-      onBlur={onBlur}
-      ref={ref}
-    />
-  )
-);
+export function AppInput({ wFull = false, prependIcon, ...rest }: IInputProps) {
+  return (
+    <InputContainer wFull={wFull}>
+      <IconContainer>{prependIcon}</IconContainer>
+      <InputElement {...rest}></InputElement>
+    </InputContainer>
+  );
+}

@@ -5,7 +5,7 @@ import { PropsWithChildren } from "react";
 export default function AuthLayout({ children }: PropsWithChildren) {
   return (
     <Container>
-      <AppBanner />
+      <AppBanner data-element="banner" />
       <div>{children}</div>
     </Container>
   );

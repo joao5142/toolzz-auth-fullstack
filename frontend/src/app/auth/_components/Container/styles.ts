@@ -10,4 +10,10 @@ export const Container = styled.div`
   & > :nth-child(2) {
     flex: 1;
   }
+
+  @media (max-width: 900px) {
+    & [data-element="banner"] {
+      display: none;
+    }
+  }
 `;

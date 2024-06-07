@@ -16,9 +16,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronLeft,
-  faMoon,
-  faSun,
+  faMoon as faMoonFilled,
 } from "@fortawesome/free-solid-svg-icons";
+
+import { faMoon } from "@fortawesome/free-regular-svg-icons";
 
 import { ThemeContext } from "@/contexts/ThemeContext";
 
@@ -47,7 +48,7 @@ const bannerInfos = [
   },
 ];
 
-export default function AppBanner() {
+export default function AppBanner({ ...rest }) {
   const [bannerInfoIndex, setBannerInfoIndex] = useState<number>(0);
   const timerInterval = useRef<NodeJS.Timer | null>(null);
 
@@ -83,19 +84,41 @@ export default function AppBanner() {
   }, []);
 
   return (
-    <BannerContainer image={bannerInfos[bannerInfoIndex].image}>
+    <BannerContainer image={bannerInfos[bannerInfoIndex].image} {...rest}>
       <AppRow justify="between">
         <AppButton fab rounded outlined>
-          <FontAwesomeIcon icon={faChevronLeft} color="white" />
+          <FontAwesomeIcon
+            icon={faChevronLeft}
+            color="white"
+            fontSize="18px"
+            width={18}
+            height={18}
+          />
         </AppButton>
 
-        <AppButton fab rounded outlined onClick={toggleTheme}>
-          {theme == "dark" ? (
-            <FontAwesomeIcon icon={faSun} color="white" cursor="pointer" />
-          ) : (
-            <FontAwesomeIcon icon={faMoon} color="white" cursor="pointer" />
-          )}
-        </AppButton>
+        {theme == "light" ? (
+          <AppButton fab rounded outlined onClick={toggleTheme}>
+            <FontAwesomeIcon
+              icon={faMoon}
+              color="white"
+              cursor="pointer"
+              fontSize="22px"
+              width={22}
+              height={22}
+            />
+          </AppButton>
+        ) : (
+          <AppButton fab rounded background="white" onClick={toggleTheme}>
+            <FontAwesomeIcon
+              icon={faMoonFilled}
+              color="black"
+              cursor="pointer"
+              fontSize="22px"
+              width={22}
+              height={22}
+            />
+          </AppButton>
+        )}
       </AppRow>
 
       <Box>

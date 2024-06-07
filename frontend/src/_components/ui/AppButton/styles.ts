@@ -23,22 +23,30 @@ function getButtonSizeStyle(size: ButtonSizeTypes) {
   if (size == "sm") {
     return css`
       padding: 0.3rem 0.75rem;
+      border-radius: ${(props) => props.theme.radius["sm"]};
     `;
   } else if (size == "md") {
     return css`
-      padding: 1.2rem;
+      padding: 0.75rem 1rem;
+
+      border-radius: ${(props) => props.theme.radius["xs"]};
     `;
   } else if (size === "lg") {
     return css`
-      padding: 1.8rem;
+      padding: 1rem;
+      border-radius: ${(props) => props.theme.radius["xs"]};
     `;
   }
 }
 
 export const ButtonContainer = styled(Box)<IButtonProps>`
-  ${(props) => props.background && getButtonBackgroundStyle(props.background)}
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  border-radius: ${(props) => props.theme.radius["sm"]};
+  cursor: pointer;
+
+  ${(props) => props.background && getButtonBackgroundStyle(props.background)}
 
   ${(props) => props.size && getButtonSizeStyle(props.size)}
 
